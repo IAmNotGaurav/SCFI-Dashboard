@@ -38,9 +38,7 @@ from reportlab.platypus import (
 )
 
 
-# =========================================================
 # PAGE
-# =========================================================
 
 st.set_page_config(
     page_title="SCFI Monitor",
@@ -49,9 +47,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# =========================================================
-# PROFESSIONAL STYLING
-# =========================================================
+# STYLING
+
 
 st.markdown(
     """
@@ -144,9 +141,8 @@ EVENTS = {
 }
 
 
-# =========================================================
 # HELPERS
-# =========================================================
+
 
 def classify_fragility(value):
     if value < 0.5:
@@ -844,17 +840,15 @@ def create_pdf_report(results, selected_model, insights):
     return buffer.getvalue()
 
 
-# =========================================================
 # SESSION STATE
-# =========================================================
+
 
 if "results" not in st.session_state:
     st.session_state.results = None
 
 
-# =========================================================
 # HEADER
-# =========================================================
+
 
 st.markdown(
     """
@@ -872,9 +866,8 @@ st.markdown(
 )
 
 
-# =========================================================
 # SIDEBAR: UPLOADS
-# =========================================================
+
 
 with st.sidebar:
     st.header("Data workspace")
@@ -943,9 +936,8 @@ if not uploads_ready:
     st.stop()
 
 
-# =========================================================
 # UPLOAD CONFIGURATION
-# =========================================================
+
 
 with st.expander("Configure uploaded datasets", expanded=True):
     tabs = st.tabs(["GSCPI", "Inflation", "GPR", "Oil"])
@@ -1099,9 +1091,8 @@ if results is None:
     st.stop()
 
 
-# =========================================================
 # MODEL CONTROL
-# =========================================================
+
 
 available_models = results["model_comparison"]["Model"].tolist()
 default_model = (
@@ -1123,9 +1114,8 @@ previous_row = results["master_scaled"].iloc[-2]
 latest_raw = results["latest_raw"]
 
 
-# =========================================================
 # MAIN NAVIGATION
-# =========================================================
+
 
 pages = st.tabs([
     "Executive Dashboard",
@@ -1138,9 +1128,8 @@ pages = st.tabs([
 ])
 
 
-# =========================================================
 # EXECUTIVE DASHBOARD
-# =========================================================
+
 
 with pages[0]:
     st.markdown("## Executive Dashboard")
@@ -1267,9 +1256,8 @@ with pages[0]:
         )
 
 
-# =========================================================
 # DATA QUALITY
-# =========================================================
+
 
 with pages[1]:
     st.markdown("## Data Quality & Harmonisation")
@@ -1292,9 +1280,8 @@ with pages[1]:
         st.dataframe(preview, hide_index=True, use_container_width=True)
 
 
-# =========================================================
 # SCFI ANALYSIS
-# =========================================================
+
 
 with pages[2]:
     st.markdown("## SCFI Development & Indicator Contribution")
@@ -1387,9 +1374,8 @@ with pages[2]:
     v3.metric("RMSE vs GSCPI", f"{results['validation_rmse']:.3f}")
 
 
-# =========================================================
 # EVENT EXPLORER
-# =========================================================
+
 
 with pages[3]:
     st.markdown("## Global Disruption Event Explorer")
@@ -1454,9 +1440,8 @@ with pages[3]:
         )
 
 
-# =========================================================
 # FORECASTING
-# =========================================================
+
 
 with pages[4]:
     st.markdown("## Forecasting & Model Comparison")
@@ -1577,9 +1562,8 @@ with pages[4]:
     st.plotly_chart(forecast_fig, use_container_width=True)
 
 
-# =========================================================
 # SCENARIO SIMULATOR
-# =========================================================
+
 
 with pages[5]:
     st.markdown("## What-if Scenario Simulator")
@@ -1713,9 +1697,8 @@ with pages[5]:
     st.plotly_chart(tf, use_container_width=True)
 
 
-# =========================================================
 # REPORTS
-# =========================================================
+
 
 with pages[6]:
     st.markdown("## Reports, Downloads & Method")
