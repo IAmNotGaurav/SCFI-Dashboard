@@ -1,4 +1,4 @@
-# SCFI Dashboard V2
+# SCFI Dashboard
 
 A portfolio-ready Streamlit decision-support application based on the final
 Supply Chain Fragility Index dissertation notebook.
@@ -26,12 +26,6 @@ Supply Chain Fragility Index dissertation notebook.
   - PDF executive report
   - SCFI history CSV
 
-## Deploy on Streamlit Community Cloud
-
-Upload these files to the root of your GitHub repository:
-
-- `app.py`
-- `requirements.txt`
 - `README.md`
 
 Your Streamlit app should point to `app.py`.
