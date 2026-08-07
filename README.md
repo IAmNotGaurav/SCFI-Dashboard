@@ -26,9 +26,3 @@ Supply Chain Fragility Index dissertation notebook.
   - PDF executive report
   - SCFI history CSV
 
-- `README.md`
-
-Your Streamlit app should point to `app.py`.
-
-When committed to GitHub, Streamlit Community Cloud normally rebuilds the app
-automatically. If it does not, choose **Manage app → Reboot app**.
